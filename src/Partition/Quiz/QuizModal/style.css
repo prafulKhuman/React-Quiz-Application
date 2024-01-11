@@ -1,0 +1,148 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.start_btn{
+    transform: translate(25%, 10%);
+    box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 68px;
+    width: 258px
+}
+
+
+
+.start_btn button{
+    font-size: 25px;
+    margin-left: 0;
+    font-weight: 500;
+    color: #007bff;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.timer{
+    color: #004085;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
+    height: 45px;
+    padding-left: 8px;
+    padding-right: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+}
+
+.timer .time_left_txt{
+    font-weight: 400;
+    font-size: 17px;
+    user-select: none;
+}
+
+.timer .timer_sec{
+    font-size: 18px;
+    font-weight: 500;
+    height: 30px;
+    width: 45px;
+    color: #fff;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    background: #343a40;
+    border: 1px solid #343a40;
+    user-select: none;
+}
+
+.q-total{
+    padding-top: 2%;
+}
+.q-digit{
+    font-size: larger;
+}
+
+
+h1 {
+    font-family: "Roboto";
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .timer-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .time-left{
+    font-size: 1.3em;
+  }
+  
+  .time-wrapper {
+    position: relative;
+    width: 80px;
+    height: 60px;
+    font-size: 30px;
+    font-family: "Montserrat";
+    
+  }
+  
+  .time-wrapper .time {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.2s;
+  }
+  
+  .time-wrapper .time.up {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  
+  .time-wrapper .time.down {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  
+  .question-container{
+    margin: 2%;
+  }
+  .option{
+    margin-top: 1%;
+    line-height: 3;
+  }
+
+  .option-item{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid ;
+    padding-inline-start: 10px;
+    border-radius: 10px 5px;
+    cursor: pointer;
+    box-shadow: 6px 8px 9px whitesmoke;
+  }
+
+  .question{
+    font-size: 1.2em;
+    margin-inline-start: 1%;
+  }
+
+  .pe-auto{
+    cursor: pointer !important;
+  }
+
+  .result-font{
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  .fail{
+    margin-inline-start: 44%;
+  }

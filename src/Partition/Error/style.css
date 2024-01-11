@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.error-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.error-code{
+    font-size: 2em;
+    font-family: 'Lobster', sans-serif;
+  
+}
+.error-message{
+    padding-inline-start: 1em;
+    font-family: 'Lobster', sans-serif;
+    
+}

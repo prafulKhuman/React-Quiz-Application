@@ -1,0 +1,57 @@
+.profile-icon {
+    cursor: pointer;
+}
+.user{
+    display: inline-flex;
+    align-items: center;
+    width: 15rem;
+    justify-content: flex-end;
+
+}
+
+.profile-card {
+    position: absolute;
+    top: 80%;
+    left: 90%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    border: 1px solid #fffafa;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.profile-icon:hover .profile-card {
+    display: block;
+}
+
+.spidomeeter{
+    width: 140%
+}
+
+.card-height-m{
+    height: inherit;
+}
+
+.font-color-contain{
+    color: black ;
+}
+
+.pi-1{
+    padding-inline-start: 1%;
+}
+
+.coustom-card{
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 18%;
+    right: 3%;
+}
+
+.pi-6{
+    padding: 8%;
+    line-height: 2rem;
+    font-size: 1.2rem;
+}
