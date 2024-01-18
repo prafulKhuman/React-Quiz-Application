@@ -1,48 +1,4 @@
-// import { Routes, Route, Navigate } from "react-router-dom";
-// import Login from "./Component/Authentication/Login";
-// import Register from "./Component/Authentication/Register";
-// import Home from "./Pages/Home/Home";
-// import { useAuth } from './AuthContext/AuthContext';
-// import { useNavigate } from 'react-router-dom';
 
-// function RoutesConfig() {
-//     const { state } = useAuth();
-//     const navigate = useNavigate();
-
-//     const isAuthorized = () => {
-//         return state?.isAuthenticated;
-//     }
-    
-//     if(!isAuthorized){
-//         navigate("/Login")
-//     }
-
-//     const handleSuccessfulLogin = () => {
-//         if (isAuthorized()) {
-//             navigate('/DashBoard');
-//         }
-//     }
-
-//     return (
-//         <Routes>
-//             <Route
-//                 path="/"
-//                 element={<Login onSuccess={handleSuccessfulLogin} />}
-//             />
-//             <Route path="/Login" element={<Login onSuccess={handleSuccessfulLogin} />} />
-//             <Route path="/Register" element={<Register />} />
-           
-//             {isAuthorized() ? 
-//                 <Route path="/DashBoard" element={<Home />} />
-//                 : <Route index element={<Navigate to="/Login" />} />
-//             }
-           
-            
-//         </Routes>
-//     );
-// }
-
-// export default RoutesConfig;
 
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";

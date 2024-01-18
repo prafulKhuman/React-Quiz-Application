@@ -10,10 +10,8 @@ export default function BasePage() {
   return (
     <Suspense >
       <Switch>
-        {<Redirect exact from="/" to="/dashboard" />}
-        
         <Route path="/dashboard" component={Dashboard} />
-        
+        <Redirect exact from="/" to="/dashboard" />
       </Switch>
     </Suspense>
   );

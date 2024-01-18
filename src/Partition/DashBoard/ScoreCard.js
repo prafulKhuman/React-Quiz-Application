@@ -25,7 +25,6 @@ function ScoreCard() {
         variables: { id: userid.toString(), userId: " " },
     });
 
-    console.log(allQuiz , "allQuiz");
 
     useEffect(() => {
         if (LastQuiz) {
@@ -45,7 +44,6 @@ function ScoreCard() {
         }
     }, [allQuiz]);
 
-    console.log(totalScore , "Total Score: ");
 
     return (<>
         <section className="featured-section">
@@ -62,10 +60,10 @@ function ScoreCard() {
                                         <Spodomeetar score={data?.correctscore} />
                                     </div>
                                     <div className="mt-3">
-                                        <p>Quiz Name :: <span> {loading ? "Wait...." : data ? data.quizname : "Null"}</span></p>
-                                        <p>Total Score :: <span>{loading ? "Wait...." : data ? data.totalscore : "Null"}</span></p>
-                                        <p>Obtain Score :: <span>{loading ? "Wait...." : data ? data.correctscore : "Null"}</span></p>
-                                        <p> Status :: <span>{loading ? "Wait...." : data ? data.status : "Null"}</span></p>
+                                        <p>Quiz Name :: <span> {loading ? "Wait...." : data ? data.quizname : ""}</span></p>
+                                        <p>Total Score :: <span>{loading ? "Wait...." : data ? data.totalscore : ""}</span></p>
+                                        <p>Obtain Score :: <span>{loading ? "Wait...." : data ? data.correctscore : ""}</span></p>
+                                        <p> Status :: <span>{loading ? "Wait...." : data ? data.status : ""}</span></p>
                                     </div>
                                 </div>
 
@@ -87,50 +85,50 @@ function ScoreCard() {
                                         <h5 className="text-white mb-2">Quiz Summary</h5>
                                         <div className="d-lg-flex flex-wrap container card-height-m">
                                             <div className="d-flex flex-wrap justify-content-around mt-5  w-100 ">
-                                                <div class="card w-80 bg-transparent mt-4 border-0">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-center ">{loadingnew ?
-                                                            <div class="spinner-border" role="status">
-                                                                <span class="visually-hidden">Loading...</span>
+                                                <div className="card w-80 bg-transparent mt-4 border-0">
+                                                    <div className="card-body">
+                                                        <h5 className="card-title text-center ">{loadingnew ?
+                                                            <div className="spinner-border" role="status">
+                                                                <span className="visually-hidden">Loading...</span>
                                                             </div> :
                                                             alldata?.length || 0}</h5>
-                                                        <p class="card-text text-center font-color-contain" >Total Quiz </p>
+                                                        <p className="card-text text-center font-color-contain" >Total Quiz </p>
 
                                                     </div>
                                                 </div>
-                                                <div class="card w-80 bg-transparent mt-4 border-0">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-center">{loadingnew ?
-                                                            <div class="spinner-border" role="status">
-                                                                <span class="visually-hidden">Loading...</span>
+                                                <div className="card w-80 bg-transparent mt-4 border-0">
+                                                    <div className="card-body">
+                                                        <h5 className="card-title text-center">{loadingnew ?
+                                                            <div className="spinner-border" role="status">
+                                                                <span className="visually-hidden">Loading...</span>
                                                             </div> :
                                                             passQuiz?.length || 0}</h5>
-                                                        <p class="card-text text-center font-color-contain">Passed Quiz</p>
+                                                        <p className="card-text text-center font-color-contain">Passed Quiz</p>
 
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div className="d-flex flex-wrap justify-content-around mt-7 w-100">
-                                                <div class="card w-80 bg-transparent mt-4 border-0">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-center">{loadingnew ?
-                                                            <div class="spinner-border" role="status">
-                                                                <span class="visually-hidden">Loading...</span>
+                                                <div className="card w-80 bg-transparent mt-4 border-0">
+                                                    <div className="card-body">
+                                                        <h5 className="card-title text-center">{loadingnew ?
+                                                            <div className="spinner-border" role="status">
+                                                                <span className="visually-hidden">Loading...</span>
                                                             </div> :
                                                             alldata?.length - passQuiz?.length || 0}</h5>
-                                                        <p class="card-text text-center font-color-contain">Fail Quiz</p>
+                                                        <p className="card-text text-center font-color-contain">Fail Quiz</p>
 
                                                     </div>
                                                 </div>
-                                                <div class="card w-80 bg-transparent mt-4 border-0">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-center">{loadingnew ?
-                                                            <div class="spinner-border" role="status">
-                                                                <span class="visually-hidden">Loading...</span>
+                                                <div className="card w-80 bg-transparent mt-4 border-0">
+                                                    <div className="card-body">
+                                                        <h5 className="card-title text-center">{loadingnew ?
+                                                            <div className="spinner-border" role="status">
+                                                                <span className="visually-hidden">Loading...</span>
                                                             </div> :
                                                             totalScore || 0}</h5>
-                                                        <p class="card-text text-center font-color-contain">Total Score </p>
+                                                        <p className="card-text text-center font-color-contain">Total Score </p>
 
                                                     </div>
                                                 </div>
@@ -142,7 +140,7 @@ function ScoreCard() {
 
                                     </div>
 
-                                    <span className="badge bg-finance rounded-pill ms-auto"><i class="bi bi-activity"></i></span>
+                                    <span className="badge bg-finance rounded-pill ms-auto"><i className="bi bi-activity"></i></span>
                                 </div>
 
                                 <div className="social-share d-flex">

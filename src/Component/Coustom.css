@@ -55,3 +55,13 @@
     line-height: 2rem;
     font-size: 1.2rem;
 }
+
+.icon-size{
+    font-size: 20px;
+}
+
+.word{
+    text-wrap: nowrap;
+    margin-bottom: 10%;
+    margin-top: 3%;
+}

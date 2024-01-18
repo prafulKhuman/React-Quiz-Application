@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { REGISTER_MUTATION } from '../../ApolloClient/Authentication/LogonApollo';
@@ -13,6 +13,10 @@ import { ToastContainer, toast } from 'react-toastify';
 function Register() {
     // const navigate = useNavigate();
     const [addUser] = useMutation(REGISTER_MUTATION);
+    const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+
 
     const formik = useFormik({
         initialValues: {
@@ -33,13 +37,13 @@ function Register() {
                 .required('Confirm Password is required'),
         }),
         onSubmit: (values, action) => {
-
+            setIsLoading(true);
             addUser({ variables: { username: values.email, password: values.password } })
                 .then(() => {
 
                     toast.success('Registretion Successfully', {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 1000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -57,7 +61,7 @@ function Register() {
                         }
                     });
                 })
-                .catch((error) =>{
+                .catch((error) => {
                     toast.error(error.message, {
                         position: "top-right",
                         autoClose: 2000,
@@ -68,7 +72,9 @@ function Register() {
                         progress: undefined,
                         theme: "light",
                     })
-                });
+                }).finally(() => {
+                    setIsLoading(false);
+                })
         },
     });
 
@@ -92,6 +98,7 @@ function Register() {
                                     </label>
                                     <input
                                         type="email"
+                                        disabled={isLoading}
                                         id="form3Example3"
                                         name="email"
                                         className={`form-control form-control-lg ${formik.touched.email && formik.errors.email ? 'is-invalid' : ''}`}
@@ -105,14 +112,19 @@ function Register() {
                                     <label className="form-label" htmlFor="form3Example4">
                                         Password
                                     </label>
-                                    <input
-                                        type="password"
-                                        id="form3Example4"
-                                        name="password"
-                                        className={`form-control form-control-lg ${formik.touched.password && formik.errors.password ? 'is-invalid' : ''}`}
-                                        placeholder="Enter password"
-                                        {...formik.getFieldProps('password')}
-                                    />
+                                    <div className='d-flex'>
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            id="form3Example4"
+                                            name="password"
+                                            disabled={isLoading}
+                                            className={`form-control form-control-lg ${formik.touched.password && formik.errors.password ? 'is-invalid' : ''}`}
+                                            placeholder="Enter password"
+                                            {...formik.getFieldProps('password')}
+                                        />
+                                        <span class=" input-group-text" onClick={() => setShowPassword(!showPassword)}> {showPassword ? <i class="bi bi-eye-slash"></i> : <i class="bi bi-eye"></i>}  </span>
+
+                                    </div>
                                     {formik.touched.password && formik.errors.password && <div className="invalid-feedback">{formik.errors.password}</div>}
                                 </div>
 
@@ -120,14 +132,19 @@ function Register() {
                                     <label className="form-label" htmlFor="form3Example5">
                                         Confirm Password
                                     </label>
-                                    <input
-                                        type="password"
-                                        id="form3Example5"
-                                        name="confirmPassword"
-                                        className={`form-control form-control-lg ${formik.touched.confirmPassword && formik.errors.confirmPassword ? 'is-invalid' : ''}`}
-                                        placeholder="Confirm password"
-                                        {...formik.getFieldProps('confirmPassword')}
-                                    />
+                                    <div className='d-flex'>
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            id="form3Example5"
+                                            disabled={isLoading}
+                                            name="confirmPassword"
+                                            className={`form-control form-control-lg ${formik.touched.confirmPassword && formik.errors.confirmPassword ? 'is-invalid' : ''}`}
+                                            placeholder="Confirm password"
+                                            {...formik.getFieldProps('confirmPassword')}
+                                        />
+                                        <span class=" input-group-text" onClick={() => setShowPassword(!showPassword)}> {showPassword ? <i class="bi bi-eye-slash"></i> : <i class="bi bi-eye"></i>}  </span>
+
+                                    </div>
                                     {formik.touched.confirmPassword && formik.errors.confirmPassword && (
                                         <div className="invalid-feedback">{formik.errors.confirmPassword}</div>
                                     )}
@@ -138,7 +155,7 @@ function Register() {
                                         type="submit"
                                         className="btn btn-primary btn-lg"
                                         style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
-                                        disabled={!formik.isValid}
+                                        disabled={!formik.isValid || isLoading}
                                     >
                                         Register
                                     </button>

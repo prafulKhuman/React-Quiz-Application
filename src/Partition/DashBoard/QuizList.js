@@ -89,7 +89,7 @@ function QuizList() {
                             <div className="col-12">
                                 <div className="tab-content" id="myTabContent">
                                     <div className='panel-view'>
-                                        <div className="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                                        <div className="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabIndex="0">
                                             <div className="row">
                                                 {Quiz?.loading ?
                                                     <div className='spiner-container'>
@@ -105,9 +105,9 @@ function QuizList() {
                                                         />
                                                     </div>
                                                     :
-                                                    (quizdata ? QuizAll?.data?.Quiz :  Quiz?.data?.Quiz)?.map((record) => (
+                                                    (quizdata ? QuizAll?.data?.Quiz :  Quiz?.data?.Quiz)?.map((record , index) => (
                                                   
-                                                        <div className="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" >
+                                                        <div key={index} className="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" >
                                                             <div className="custom-block bg-white shadow-lg">
 
                                                                 <div className="d-flex">
@@ -121,7 +121,7 @@ function QuizList() {
                                                                             <p>Good luck!</p>
                                                                         </div>
                                                                         <div>
-                                                                        <div class="start_btn"><button onClick={() => handleClick(record) } >Start Quiz</button></div>
+                                                                        <div className="start_btn"><button onClick={() => handleClick(record) } >Start Quiz</button></div>
                                                                             <List Quiz={selectedQuiz} show={modalShow} ModalShow={(modalshow)=>{setModalShow(modalshow)}}/>
                                                                         </div>
 
