@@ -11,7 +11,7 @@ import { GET_QUIZ_CONDITION } from "../../ApolloClient/Quiz/QuizApollo"
 
 function QuizList() {
     const [selectedCategory, setSelectedCategory] = useState("")
-    const { data, error, loading } = useQuery(GET_CATEGORY);
+    const { data , loading } = useQuery(GET_CATEGORY);
     const [modalShow, setModalShow] = useState(false);
     const [selectedQuiz , setSelectedQuiz] = useState(null);
     const [ quizdata , setQuizdata ] = useState(false);

@@ -1,5 +1,4 @@
 import "./style.css"
-import { useState } from "react";
 import QuizRules from "./QuizRules";
 function QuizList({quiz , show , setModalShow}) {
    
